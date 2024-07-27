@@ -1,0 +1,12 @@
+Thi si the logni pgae!
+{% extends 'base.html' %}
+{% load tailwind_filters %}
+{% block content %}
+{% if not user.is_authenticated %}
+    <form method="post">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <button type="submit">Login!</button>
+    </form>
+{% endif %}
+{% endblock content %}
